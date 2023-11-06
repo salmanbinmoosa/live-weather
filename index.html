@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: teal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 60%;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+
+        select,
+        input,
+        button {
+            width: 90%;
+            font-size: 1.6rem;
+            padding: 10px;
+            border: 2px solid teal;
+        }
+
+        option {
+            border: 2px solid teal;
+
+        }
+
+        button {
+            font-weight: bold;
+        }
+
+        option {
+            border: 2px solid teal;
+
+        }
+
+        .elm {
+            width: 90%;
+            height: 40px;
+            border: 2px solid black;
+            display: none;
+        }
+
+        .green {
+            width: 100%;
+            height: 100%;
+            background-color: green;
+            overflow: hidden;
+            display: flex;
+            animation: fill 1s ease-in-out infinite;
+        }
+
+        .green p {
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        .con-2 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        @keyframes fill {
+            0% {
+                width: 0%;
+            }
+        }
+
+        @media screen and (max-width:553px) {
+            .container {
+                width: 90vw;
+                gap: 20px;
+                height: 300px;
+            }
+
+            input {
+                font-size: 1rem;
+                border: 2px solid teal;
+            }
+
+            select {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            button {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container con-1">
+        <h1>Check live weather</h1>
+        <select name="" id="">
+            <option>City Name</option>
+            <option>Hyderabad</option>
+            <option>Mombai</option>
+            <option>karnataka</option>
+        </select>
+
+        <input placeholder="State name" type="text" id="input">
+
+        <button id="check">
+            Check now</button>
+        <div class="elm">
+            <div class="green">
+            </div>
+        </div>
+    </div>
+
+    <div class="container con-2">
+        <h1>Khidki ke baahar dekhlo</h1>
+    </div>
+
+    <script>
+        const check = document.getElementById("check")
+        const input = document.getElementById("input")
+        check.addEventListener("click", () => {
+            if (input.value !== "") {
+                check.innerHTML = "Processing...."
+                const elm = document.getElementsByClassName("elm")[0]
+                elm.style.display = "block"
+                setTimeout(() => {
+                    const conOne = document.getElementsByClassName("con-1")[0]
+                    conOne.style.display = "none"
+                    const conTwo = document.getElementsByClassName("con-2")[0]
+                    conTwo.style.display = "flex"
+                }, 9000)
+            } else {
+                input.focus()
+            }
+        })
+    </script>
+</body>
+
+</html>
